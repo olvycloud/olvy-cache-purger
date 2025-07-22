@@ -1,8 +1,5 @@
 # Olvy Cache Purger
 
-[![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/olvy-cache-purger.svg?style=flat-square)](https://wordpress.org/plugins/olvy-cache-purger/)
-[![WordPress Requires At Least](https://img.shields.io/wordpress/plugin/requires/olvy-cache-purger.svg?style=flat-square)](https://wordpress.org/plugins/olvy-cache-purger/)
-[![WordPress Tested Up To](https://img.shields.io/wordpress/plugin/tested/olvy-cache-purger.svg?style=flat-square)](https://wordpress.org/plugins/olvy-cache-purger/)
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-blue.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-2.0.txt)
 
 Manages Nginx FastCGI cache for WordPress with global and automatic purging for posts, pages, and WooCommerce products/categories.
