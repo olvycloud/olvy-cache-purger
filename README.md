@@ -6,7 +6,7 @@ Manages Nginx FastCGI cache for WordPress with global and automatic purging for 
 
 ## Description
 
-Olvy Cache Purger is a lightweight and efficient WordPress plugin designed to seamlessly integrate with your Nginx FastCGI cache setup. It provides robust cache management features directly from your WordPress dashboard, ensuring your website's content is always up-to-date and served quickly.
+Olvy Cache Purger is a lightweight and efficient WordPress plugin created by [Olvy](https://olvy.net) and designed to seamlessly integrate with your Nginx FastCGI cache setup. It provides robust cache management features directly from your WordPress dashboard, ensuring your website's content is always up-to-date and served quickly.
 
 **Key Features:**
 
