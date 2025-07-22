@@ -3,7 +3,7 @@
  * Plugin Name: Olvy Cache Purger
  * Plugin URI:  https://github.com/olvycloud/olvy-cache-purger
  * Description: Manages Nginx FastCGI cache for WordPress with global and automatic purging for posts, pages, and WooCommerce products/categories.
- * Version:     1.0.1
+ * Version:     1.0.0
  * Author:      Olvy Cloud
  * Author URI:  https://olvy.net/
  * License:     GPL-2.0+
