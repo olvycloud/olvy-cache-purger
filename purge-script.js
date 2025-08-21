@@ -1,13 +1,42 @@
 jQuery(document).ready(function($) {
+    // Helper function to display a temporary message in the admin bar
+    function showStatusMessage(message, type) {
+        // Create a unique ID for the message div
+        const messageId = 'sncp-status-message-' + Date.now();
+        const $messageDiv = $('<div>')
+            .attr('id', messageId)
+            .addClass('sncp-status-message ' + type)
+            .text(message)
+            .hide();
+
+        // Get the parent list item of the purge button
+        const $purgeButtonLi = $('#wp-admin-bar-sncp-purge-nginx-cache');
+
+        // Append the message to the list item and slide it in
+        $purgeButtonLi.append($messageDiv);
+        $messageDiv.slideDown(200);
+
+        // Automatically hide the message after 3 seconds
+        setTimeout(function() {
+            $messageDiv.slideUp(200, function() {
+                $(this).remove();
+            });
+        }, 3000);
+    }
+
     // Get the admin bar purge button
-    var $purgeButton = $('#wp-admin-bar-sncp-purge-nginx-cache .ab-item');
+    var $purgeButton = $('.sncp-purge-button');
 
     // Attach click event listener
     $purgeButton.on('click', function(e) {
         e.preventDefault(); // Prevent default link behavior
 
-        var originalButtonText = $purgeButton.html(); // Store original text
-        $purgeButton.html('<span class="ab-icon dashicons-before dashicons-update spin"></span> ' + sncp_ajax_object.purging_message); // Show purging message with spinner
+        // Get the inner text element of the button
+        var $buttonItem = $purgeButton.find('.ab-item');
+        var originalButtonText = $buttonItem.html(); // Store original text
+
+        // Show purging message with spinner
+        $buttonItem.html('<span class="ab-icon dashicons-before dashicons-image-rotate spin"></span> ' + sncp_ajax_object.purging_message);
         $purgeButton.addClass('sncp-purging'); // Add class to disable further clicks and style
 
         // Send AJAX request
@@ -20,27 +49,19 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 if (response.success) {
-                    alert(sncp_ajax_object.success_message);
+                    showStatusMessage(sncp_ajax_object.success_message, 'success');
                 } else {
-                    alert(sncp_ajax_object.error_message + '\n' + response.data.message);
+                    showStatusMessage(sncp_ajax_object.error_message + ': ' + response.data.message, 'error');
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.error('AJAX Error:', textStatus, errorThrown);
-                alert(sncp_ajax_object.error_message + '\n' + textStatus);
+                showStatusMessage(sncp_ajax_object.error_message + ': ' + textStatus, 'error');
             },
             complete: function() {
-                $purgeButton.html(originalButtonText); // Restore original text
+                $buttonItem.html(originalButtonText); // Restore original text
                 $purgeButton.removeClass('sncp-purging'); // Remove purging class
             }
         });
     });
-
-    // Optional: Add some basic CSS for the spinner
-    // You can also enqueue a separate CSS file for more complex styling
-    $('head').append('<style>' +
-        '.sncp-purging { pointer-events: none; opacity: 0.8; }' +
-        '.sncp-purging .dashicons-update.spin { animation: sncp-spin 1s infinite linear; }' +
-        '@keyframes sncp-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }' +
-        '</style>');
 });
