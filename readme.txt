@@ -55,7 +55,6 @@ This plugin is ideal for WordPress sites running on Nginx with FastCGI caching e
 
 == Changelog ==
 = 1.0.1 =
-* Resolved a JavaScript syntax error (missing name after . operator) in purge-script.js.
 * Added visual feedback for purge actions, including a loading spinner and temporary status messages (success/error).
 * Implemented new CSS to style the visual feedback elements for a better user experience.
 
