@@ -3,7 +3,7 @@ Contributors: Olvy Cloud
 Tags: nginx, cache, purge, woocommerce, performance
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.0.1
+Stable tag: 1.0.0
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -54,10 +54,6 @@ This plugin is ideal for WordPress sites running on Nginx with FastCGI caching e
     `sudo systemctl reload nginx` (or `sudo service nginx reload`)
 
 == Changelog ==
-= 1.0.1 =
-* Added visual feedback for purge actions, including a loading spinner and temporary status messages (success/error).
-* Implemented new CSS to style the visual feedback elements for a better user experience.
-
 = 1.0.0 =
 * Initial release of the Olvy Cache Purger plugin.
 * Added global "Purge Olvy Cache" button to the admin bar.
