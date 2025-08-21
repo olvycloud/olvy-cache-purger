@@ -17,6 +17,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Add custom CSS for the admin bar button and status messages.
+ */
+function sncp_add_admin_styles() {
+    ?>
+    <style type="text/css">
+        /* Styles for the loading spinner */
+        .sncp-purge-button .spin {
+            animation: sncp-rotate 1.5s linear infinite;
+        }
+        @keyframes sncp-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Set the parent list item as the positioning context */
+        #wp-admin-bar-sncp-purge-nginx-cache {
+            position: relative;
+        }
+
+        /* General styles for the status messages */
+        .sncp-status-message {
+            position: absolute;
+            top: 100%; /* Position directly below the button */
+            left: 0; /* Align with the left edge of the button's container */
+            padding: 10px 15px;
+            margin-top: 5px; /* A little space between the button and message */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 14px;
+            color: #fff;
+            z-index: 99999;
+            white-space: nowrap; /* Prevents text from wrapping */
+        }
+
+        /* Specific colors for success and error messages */
+        .sncp-status-message.success {
+            background-color: #46b450; /* WordPress green */
+        }
+        .sncp-status-message.error {
+            background-color: #dc3232; /* WordPress red */
+        }
+    </style>
+    <?php
+}
+add_action( 'admin_head', 'sncp_add_admin_styles' );
+add_action( 'wp_head', 'sncp_add_admin_styles' );
+
+/**
  * Add the "Purge Olvy Cache" button to the WordPress admin bar.
  */
 function sncp_add_purge_button_to_admin_bar( $wp_admin_bar ) {
