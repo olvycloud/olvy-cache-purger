@@ -40,8 +40,8 @@ function sncp_add_admin_styles() {
         .sncp-status-message {
             position: absolute;
             top: 100%; /* Position directly below the button */
-            left: 0; /* Align with the left edge of the button's container */
-            padding: 10px 15px;
+            right: 0; /* Align with the right edge of the button's container */
+            padding: 10px 20px; /* Increased left and right padding */
             margin-top: 5px; /* A little space between the button and message */
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
