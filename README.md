@@ -53,10 +53,6 @@ This plugin is ideal for WordPress sites running on Nginx with FastCGI caching e
 
 ## Changelog
 
-### 1.0.1
-* Added visual feedback for purge actions, including a loading spinner and temporary status messages (success/error).
-* Implemented new CSS to style the visual feedback elements for a better user experience.
-
 ### 1.0.0
 * Initial release of the Olvy Cache Purger plugin.
 * Added global "Purge Olvy Cache" button to the admin bar.
